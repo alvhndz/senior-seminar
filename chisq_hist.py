@@ -4,8 +4,8 @@ from scipy import stats
 import numpy as np
 from lcg import prng
 
-sample_size = 12000
-bins = 30 # we will split the sampled random numbers into equal bins
+sample_size = 50000
+bins = 11 # we will split the sampled random numbers into equal bins
 
 def chi_squared_test():
     """Return a chi_square test."""
@@ -28,6 +28,6 @@ results = [chi_squared_test() for _ in range(5000)] # the results of 5000 chi_sq
 # plot a histogram of the results of the 5000 tests
 plt.hist(results, bins = 50, density = True)
 x = np.arange(0, 60, 0.001)
-plt.plot(x, stats.chi2.pdf(x, df=bins-1), label="degrees of freedom = 29")
+plt.plot(x, stats.chi2.pdf(x, df=bins-1), label="degrees of freedom = 10")
 plt.legend()
 plt.show()
